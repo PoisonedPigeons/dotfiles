@@ -35,10 +35,10 @@
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "XF86AudioNext") "exec mpc next")
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "XF86AudioPrev") "exec mpc prev")
 
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "s-XF86AudioPlay") "exec konsole --hide-tabbar --hide-menubar -e ncmpcpp")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "s-XF86AudioPlay") "exec alacritty -e ncmpcpp")
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "c") "exec konsole")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-c") "exec konsole")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "c") "exec alacritty")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-c") "exec alacritty")
 
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "s-f") "exec firefox")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "s-F") "exec firefox --private-window")
