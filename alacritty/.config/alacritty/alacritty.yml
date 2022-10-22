@@ -1,6 +1,6 @@
 # Nord theme Alacritty
 window:
-  startup_mode: Maximized 
+  startup_mode: Maximized
 
 colors:
   primary:
@@ -68,4 +68,4 @@ font:
     family: Source Code Pro
     style: Bold Italic
 
-  size: 11 
+  size: 10
