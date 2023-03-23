@@ -1,0 +1,2 @@
+/* Remove the scrollbar */
+:root{ scrollbar-width: none !important }
