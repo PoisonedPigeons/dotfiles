@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get the time of the last system update
+LastUpdate=$(grep "pacman -Syyu" /var/log/pacman.log | tail -n1 | cut -d ' ' -f1 | tr -d "[]")
+
+# Get the Unix time of the last system update (t1) and now (t2)
+t1=$(date +'%s' -d $LastUpdate)
+t2=$(date +'%s')
+
+# The difference between t2 and t1 is the number of seconds that passed since the last system update
+# Then divide it by 86400 (or 60^2 * 24) to convert it into days 
+DaysElapsed=$(echo "10k $t2 $t1 - 60 2 ^ 24 * / p" | dc)
+
+# Then print an explanation of what that number (which is rounded to 2 digits) means
+printf "~ %.2f Days have passed since last full system update\n" $DaysElapsed
