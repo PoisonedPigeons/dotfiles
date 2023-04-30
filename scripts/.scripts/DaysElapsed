@@ -12,4 +12,5 @@ t2=$(date +'%s')
 DaysElapsed=$(echo "10k $t2 $t1 - 60 2 ^ 24 * / p" | dc)
 
 # Then print an explanation of what that number (which is rounded to 2 digits) means
-printf "~ %.2f Days have passed since last full system update\n" $DaysElapsed
+# Also, print the exact time of the last update
+printf "~ %.2f Days have passed since last full system update (%s)\n" $DaysElapsed $LastUpdate
