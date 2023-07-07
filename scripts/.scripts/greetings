@@ -1,0 +1,27 @@
+#!/bin/bash
+# -*- mode: sh; tab-width: 4; -*-
+
+# Find out on which system we are
+hostname=$(uname -n)
+username=$(whoami)
+
+# Find the name of the network interface being used and its ip address
+netif=$(route | grep '^default' | grep -o '[^ ]*$')
+ipaddr=$(ip -f inet addr show $netif | awk '/inet / {print $2}' | cut -d '/' -f 1)
+
+# Get system performance and utilization information
+loadavg=$(cat /proc/loadavg | cut -d " " -f 1-3)
+usedmem=$(free -h | awk 'FNR == 2 {print $3}')
+freemem=$(free -h | awk 'FNR == 2 {print $4}')
+
+# Verify that figlet is installed on system, and if it is not: fail
+if ! [ -x "$(command -v figlet)" ]; then
+	echo "This scripts, which greets the user, requires figlet to work."
+	exit 1
+else
+	figlet -f script "$hostname" | head -n6
+fi
+
+# Print everything we've gathered so far in a clear way
+echo "$(date) (user: $username, ip: $ipaddr)"
+echo "load average: $loadavg, mem: used: $usedmem, free: $freemem"
