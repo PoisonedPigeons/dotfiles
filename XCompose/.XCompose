@@ -19,5 +19,6 @@ include "%L"
 # Countries and national symbols
 <Multi_key> <U> <R>				: "🇺🇾" 	# Flag: Uruguay
 <Multi_key> <C> <A>				: "🇨🇦"	# Flag: Canada
-<Multi_key> <m> <a> <p> <l> <e>			: "🍁"		# Maple Leaf
+<Multi_key> <m> <a> <p> <l> <e>			: "🍁"	# Maple Leaf
 <Multi_key> <C> <L>				: "🇨🇱"	# Flag: Chile 
+<Multi_key> <U> <S>				: "🇺🇸"	# Flag: United States 
