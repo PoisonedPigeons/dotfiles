@@ -22,7 +22,8 @@ if ! [ -x "$(command -v figlet)" ]; then
 	echo "This scripts, which greets the user, requires figlet to work."
 	exit 1
 else
-	figlet -f "$greetingsFont" "$hostname" | head -n6
+	figlet -f "$greetingsFont" "$hostname" | sed '/^\s*$/d'
+	echo
 fi
 
 # Print everything we've gathered so far in a clear way
