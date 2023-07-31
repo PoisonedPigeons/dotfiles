@@ -15,7 +15,7 @@ usedmem=$(free -h | awk 'FNR == 2 {print $3}')
 freemem=$(free -h | awk 'FNR == 2 {print $4}')
 
 # greetingsFont is the figlet font. If not already set, default to font "script"
-greetingsFont=${greetingsFont=:-script}
+greetingsFont=${greetingsFont:=script}
 
 # Verify that figlet is installed on system, and if it is not: fail
 if ! [ -x "$(command -v figlet)" ]; then
