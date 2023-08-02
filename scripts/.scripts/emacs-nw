@@ -7,7 +7,7 @@ if ! [ -x "$(command -v emacs)" ]; then
     exit 1
 else
     # Stop the user from running Emacs as the root user.
-    if [ "$EUID" -ne 0 ]; then
+    if [ "$EUID" -eq 0 ]; then
 	echo "Running Emacs (or any text editor) as root to edit a file is unadvisable."
 	echo "Please use sudoedit! It should use Emacs if you've set \$EDITOR right."
 	exit 1
