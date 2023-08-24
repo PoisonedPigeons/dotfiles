@@ -18,7 +18,7 @@ fi
 # Get the time and date on which the currently running kernel was compiled. Then transform
 # it into Unix time (all such variables will end with UT).
 kernelCompiledOn=$(uname -v | cut -d ' ' -f 4-9);
-kernelCompiledOnUT=$(date +'%s' -d "$kernelCompileTime");
+kernelCompiledOnUT=$(date +'%s' -d "$kernelCompiledOn");
 
 # Get the current time and date (in Unix Time).
 nowUT=$(date +'%s')
