@@ -1,0 +1,32 @@
+#!/bin/bash
+# -*- mode: sh; fill-column: 90; -*-
+
+# Give exit codes used here clear names.
+EXIT_SUCCESS=0
+EXIT_FAILURE=1
+
+# If there is a three letter abbreviation of the month's name in the uname output, we
+# assume it contains the kernel's compilation date and time. Otherwise, exit with failure.
+uname -a | grep -E 'Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec' > /dev/null 2>&1
+RESULT=$?
+
+if [ $RESULT -eq 1 ]; then
+    echo "Can't find the date and time your currently running kernel was compiled."
+    exit $EXIT_FAILURE
+fi
+
+# Get the time and date on which the currently running kernel was compiled. Then transform
+# it into Unix time (all such variables will end with UT).
+kernelCompiledOn=$(uname -v | cut -d ' ' -f 4-9);
+kernelCompiledOnUT=$(date +'%s' -d "$kernelCompileTime");
+
+# Get the current time and date (in Unix Time).
+nowUT=$(date +'%s')
+
+# This is the number of seconds that have passed since current kernel was compiled. Then
+# divide it by 86400 (or 60^2 * 24) to convert it into days.
+daysElapsed=$(echo "10k $nowUT $kernelCompiledOnUT - 60 2 ^ 24 * / p" | dc)
+
+# Then print an explanation of what the number means (it is rounded to 2 digits).
+printf "The currently running kernel is ~ %.2f days old (time since it has been compiled)\n" $daysElapsed
+exit $EXIT_SUCCESS
