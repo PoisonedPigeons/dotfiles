@@ -3,3 +3,6 @@
 database
 pid
 state
+
+# This systemd directory doesn't need to be tracked
+default.target.wants
