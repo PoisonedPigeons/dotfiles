@@ -23,6 +23,9 @@ LimitMEMLOCK=64M
 # disallow writing to /usr, /bin, /sbin, ...
 ProtectSystem=yes
 
+# Set up a new /dev mount for the executed processes (see systemd.exec)
+PrivateDevices=yes
+
 # more paranoid security settings
 NoNewPrivileges=yes
 ProtectKernelTunables=yes
@@ -34,6 +37,11 @@ RestrictNamespaces=yes
 
 # This service cannot load kernel modules (see systemd.exec)
 ProtectKernelModules=yes
+
+# yet more security settings
+RestrictSUIDSGID=yes
+MemoryDenyWriteExecute=yes
+LockPersonality=yes
 
 [Install]
 WantedBy=default.target
