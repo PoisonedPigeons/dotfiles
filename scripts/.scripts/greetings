@@ -13,6 +13,7 @@ ipaddr=$(ip -f inet addr show $netif | awk '/inet / {print $2}' | cut -d '/' -f 
 loadavg=$(cat /proc/loadavg | cut -d " " -f 1-3)
 usedmem=$(free -h | awk 'FNR == 2 {print $3}')
 freemem=$(free -h | awk 'FNR == 2 {print $4}')
+availmem=$(free -h | awk 'FNR == 2 {print $7}')
 
 # greetingsFont is the figlet font. If not already set, default to font "script"
 greetingsFont=${greetingsFont:=script}
@@ -28,4 +29,5 @@ fi
 
 # Print everything we've gathered so far in a clear way
 echo "$(date) (user: $username, ip: $ipaddr)"
-echo "load average: $loadavg, mem: used: $usedmem, free: $freemem"
+echo "load average: $loadavg, mem: used: $usedmem, free: $freemem, available: \
+$availmem"
