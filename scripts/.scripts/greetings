@@ -7,7 +7,12 @@ username=$(whoami)
 
 # Find the name of the network interface being used and its ip address
 netif=$(route | grep '^default' | grep -o '[^ ]*$')
-ipaddr=$(ip -f inet addr show $netif | awk '/inet / {print $2}' | cut -d '/' -f 1)
+ipaddr=$(ip -f inet addr show $netif | awk '/inet / {print $2}' | \
+			 cut -d '/' -f 1)
+
+# Get the name of the user's default shell (from /etc/passwd)
+usershell=$(awk -F: -v user=$username '$1 == user {print $NF}' /etc/passwd | \
+				xargs basename)
 
 # Get system performance and utilization information
 loadavg=$(cat /proc/loadavg | cut -d " " -f 1-3)
@@ -28,6 +33,6 @@ else
 fi
 
 # Print everything we've gathered so far in a clear way
-echo "$(date) (user: $username, ip: $ipaddr)"
+echo "$(date) (user: $username, ip: $ipaddr, shell: $usershell)"
 echo "load average: $loadavg, mem: used: $usedmem, free: $freemem, available: \
 $availmem"
