@@ -6,7 +6,7 @@ alias ncmpcpp="ncmpcpp -q"
 alias tree="tree -C"
 alias diff="diff --color"
 
-export PATH="/home/vicente/perl5/bin:/home/vicente/Downloads/src/uxn/bin:/home/vicente/.scripts:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
+export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:$MANPATH"
 export SBCL_HOME="/usr/lib/sbcl"
 export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
