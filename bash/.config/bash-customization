@@ -1,0 +1,23 @@
+# -*- mode: sh; -*-
+
+# Here are some aliases that I often use
+alias sbcl2="rlwrap sbcl"
+alias ncmpcpp="ncmpcpp -q"
+alias tree="tree -C"
+alias diff="diff --color"
+
+export PATH="/home/vicente/perl5/bin:/home/vicente/Downloads/src/uxn/bin:/home/vicente/.scripts:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
+export MANPATH="/usr/share/bcc/man:$MANPATH"
+export SBCL_HOME="/usr/lib/sbcl"
+export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
+
+export EDITOR="emacs-nw"
+export COLORTERM="truecolor"
+
+#export greetingsFont=slant
+
+# Stuff needed by Perl's module manager (CPAN)
+PERL5LIB="/home/vicente/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/vicente/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/vicente/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/vicente/perl5"; export PERL_MM_OPT;
