@@ -28,5 +28,5 @@ nowUT=$(date +'%s')
 daysElapsed=$(echo "10k $nowUT $kernelCompiledOnUT - 60 2 ^ 24 * / p" | dc)
 
 # Then print an explanation of what the number means (it is rounded to 2 digits).
-printf "The currently running kernel is ~ %.2f days old (time since it has been compiled)\n" $daysElapsed
+printf "The currently running kernel is ~ %.2f days old ($(uname -sr))\n" $daysElapsed
 exit $EXIT_SUCCESS
