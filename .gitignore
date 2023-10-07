@@ -1,7 +1,6 @@
 # These files are from MPD and don't need to be tracked
 *.log
 database
-pid
 state
 
 # This systemd directory doesn't need to be tracked
