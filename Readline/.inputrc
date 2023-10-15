@@ -1,0 +1,6 @@
+# Respect the system's default shortcuts
+$include /etc/inputrc
+
+# Partial completion of already started commands using the arrow keys
+"\e[A":history-search-backward # Arrow up
+"\e[B":history-search-forward  # Arrow down
