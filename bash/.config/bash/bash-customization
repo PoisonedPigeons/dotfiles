@@ -5,6 +5,8 @@ alias sbcl2="rlwrap sbcl"
 alias ncmpcpp="ncmpcpp -q"
 alias tree="tree -C"
 alias diff="diff --color"
+alias ftty="faketty"
+alias utime="date +'%s'"
 
 export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:$MANPATH"
