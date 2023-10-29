@@ -25,6 +25,9 @@ HISTFILESIZE=2000
 # No duplicate entries
 HISTCONTROL=ignoredups:erasedups
 
+# Commands that start with a space will be ignored
+HISTCONTROL="ignorespace:${HISTCONTROL}"
+
 # Stuff needed by Perl's module manager (CPAN)
 PERL5LIB="/home/vicente/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/vicente/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
