@@ -7,6 +7,8 @@ alias tree="tree -C"
 alias diff="diff --color"
 alias ftty="faketty"
 alias utime="date +'%s'"
+alias lsa="ls -al"
+alias lsat='ls -alt'
 
 export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:$MANPATH"
