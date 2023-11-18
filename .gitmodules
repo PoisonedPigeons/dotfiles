@@ -1,3 +1,0 @@
-[submodule "StumpWM/.stumpwm.d/modules/stumpwm-contrib"]
-	path = StumpWM/.stumpwm.d/modules/stumpwm-contrib
-	url = https://github.com/stumpwm/stumpwm-contrib
