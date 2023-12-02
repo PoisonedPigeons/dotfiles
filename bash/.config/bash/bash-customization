@@ -10,6 +10,7 @@ alias utime="date +'%s'"
 alias lsa="ls -al"
 alias lsat="ls -alt"
 alias lesser="less -R"
+alias lh="man -k"
 
 export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:/home/vicente/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
