@@ -1,0 +1,2 @@
+# GDB please be quiet on start up!
+set startup-quietly on

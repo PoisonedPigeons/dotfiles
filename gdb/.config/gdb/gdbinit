@@ -1,0 +1,2 @@
+# debuginfod is a server that serves debugging resources to tools such like GDB.
+set debuginfod enabled on
