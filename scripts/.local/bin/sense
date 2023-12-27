@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; tab-width: 4; -*-
+
+# Store this AWK program into the variable AwkProgram (use bash builtin "read").
+read -r -d '' AwkProgram <<-EOM
+	/^\$/ { exit }
+	/fan[1,2]:/ { ORS=", "; print \$2 " RPM" }
+	/CPU:/ { ORS="\n"; print \$2 }
+EOM
+
+# Verify if the sensors command is installed on the system.
+if [ -x "$(command -v sensors)" ]; then
+	sensors | awk "$AwkProgram"
+fi
