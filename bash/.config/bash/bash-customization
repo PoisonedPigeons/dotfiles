@@ -20,6 +20,9 @@ export MANPATH="/usr/share/bcc/man:/home/vicente/.rustup/toolchains/stable-x86_6
 export SBCL_HOME="/usr/lib/sbcl"
 export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
 
+# Fix to re-enable ssh-agent functionality for gnome-keyring
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
 export EDITOR="emacs-nw"
 export COLORTERM="truecolor"
 
