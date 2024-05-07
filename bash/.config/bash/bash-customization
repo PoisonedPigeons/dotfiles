@@ -14,6 +14,8 @@ alias lh="man -k"
 alias load="cat /proc/loadavg"
 alias traffic="awk -f ~/.local/bin/Traffic.awk /sys/class/net/wlan0/statistics/{rx,tx}_bytes"
 alias duh="du --si"
+alias fdate="date +'%F'"
+alias digit="diff -aNu"
 
 export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:/home/vicente/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
