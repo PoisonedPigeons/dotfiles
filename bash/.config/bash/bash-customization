@@ -15,8 +15,11 @@ alias traffic="awk -f ~/.local/bin/Traffic.awk /sys/class/net/wlan0/statistics/{
 alias duh="du --si"
 alias fdate="date +'%F'"
 alias digit="diff -aNu"
-alias ec="echo $?"
 alias fh="free -h"
+
+# Here are some functions of mine
+
+ec () { echo $?; }
 
 export PATH="$HOME/perl5/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
