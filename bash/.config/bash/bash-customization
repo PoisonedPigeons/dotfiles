@@ -18,8 +18,8 @@ alias digit="diff -aNu"
 alias ec="echo $?"
 alias fh="free -h"
 
-export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
-export MANPATH="/usr/share/bcc/man:/home/vicente/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
+export PATH="$HOME/perl5/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/share/bcc/tools:$PATH"
+export MANPATH="/usr/share/bcc/man:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
 export SBCL_HOME="/usr/lib/sbcl"
 export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
 
@@ -44,10 +44,10 @@ HISTCONTROL=ignoredups:erasedups
 HISTCONTROL="ignorespace:${HISTCONTROL}"
 
 # Stuff needed by Perl's module manager (CPAN)
-PERL5LIB="/home/vicente/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/vicente/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/vicente/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/vicente/perl5"; export PERL_MM_OPT;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # Setup colors for the ls command
 eval "$(dircolors)"
