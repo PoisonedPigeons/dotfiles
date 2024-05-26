@@ -1,7 +1,6 @@
 # -*- mode: sh; -*-
 
 # Here are some aliases that I often use
-alias sbcl2="rlwrap sbcl"
 alias ncmpcpp="ncmpcpp -q"
 alias tree="tree -C"
 alias diff="diff --color"
@@ -16,6 +15,8 @@ alias traffic="awk -f ~/.local/bin/Traffic.awk /sys/class/net/wlan0/statistics/{
 alias duh="du --si"
 alias fdate="date +'%F'"
 alias digit="diff -aNu"
+alias ec="echo $?"
+alias fh="free -h"
 
 export PATH="/home/vicente/perl5/bin:/home/vicente/.local/bin:/home/vicente/.cargo/bin:/usr/share/bcc/tools:$PATH"
 export MANPATH="/usr/share/bcc/man:/home/vicente/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
