@@ -29,7 +29,8 @@ pacbins() {
 	    pacman -Qql "$1" > "$outfile" 2> /dev/null &&
 	    grep -E "/usr/bin/[a-zA-Z0-9]{1}" "$outfile" ||
 		(rm "$outfile";
-		 >&2 echo "error: package $1 isn't installed or doesn't exist";
+		 >&2 echo "error: package $1 either isn't installed, doesn't" \
+		     "exist or doesn't have any executable files";
 		 return 1) &&
 		    rm "$outfile"
     else
