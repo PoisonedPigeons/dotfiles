@@ -1,0 +1,5 @@
+# -*- mode: conf-desktop; -*-
+
+# remove the Arch Linux logo from GDM
+[org/gnome/login-screen]
+logo=""

@@ -1,0 +1,6 @@
+# -*- mode: conf-desktop; -*-
+
+# this is needed by /etc/dconf/gdm.d/02-remove-arch-branding
+user-db:user
+system-db:gdm
+file-db:/usr/share/gdm/greeter-dconf-defaults
