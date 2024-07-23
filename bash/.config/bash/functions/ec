@@ -1,0 +1,5 @@
+# -*- mode: sh; -*-
+
+# Last command's Exit Code (ec)
+
+ec () { echo $?; }

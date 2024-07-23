@@ -1,0 +1,20 @@
+# -*- mode: sh; -*-
+
+# pacbins: print the list of files installed under /usr/bin belonging to a
+# certain Pacman package.
+
+pacbins() {
+    if [[ $# -eq 1 ]]; then
+	outfile="$(mktemp /tmp/pacbin.XXXXXXXXXX)" &&
+	    pacman -Qql "$1" > "$outfile" 2> /dev/null &&
+	    grep -E "/usr/bin/[a-zA-Z0-9]{1}" "$outfile" ||
+		(rm "$outfile";
+		 >&2 echo "error: package $1 either isn't installed, doesn't" \
+		     "exist or doesn't have any executable files";
+		 return 1) &&
+		    rm "$outfile"
+    else
+	>&2 echo "Usage: pacbins [PACKAGE]"
+	return 1
+    fi
+}
