@@ -1,0 +1,27 @@
+# -*- mode: sh; -*-
+
+# FIXME remove extra space at the end of printed lines (see belongs:15)
+
+EXIT_FAILURE=1
+
+# Find out to which Pacman package a command belongs to
+
+belongs() {
+    while [[ $# -gt 0 ]];
+    do
+	echo -n "$1: "
+
+	cmdpath="$(command -v $1 | tr -d '\n')"
+
+	if [[ $(echo -n "$cmdpath" | wc -c) -gt 0 ]]; then
+	    pacman -Fq "$cmdpath" | tr '\n' ' '
+	else
+	    echo -e >&2 "isn't on your PATH"
+	    return $EXIT_FAILURE
+	fi
+
+	echo ""
+
+	shift
+    done
+}
