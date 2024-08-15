@@ -37,7 +37,7 @@ export EDITOR="emacs-nw"
 export COLORTERM="truecolor"
 
 # Options passed to the less(1) pager by systemd (systemd doesn't obey $LESS)
-SYSTEMD_LESS="FRSMK"
+export SYSTEMD_LESS="FRSMK"
 
 #export greetingsFont=slant
 
