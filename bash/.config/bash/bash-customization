@@ -36,6 +36,9 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export EDITOR="emacs-nw"
 export COLORTERM="truecolor"
 
+# Options passed to the less(1) pager by systemd (systemd doesn't obey $LESS)
+SYSTEMD_LESS="FRSMK"
+
 #export greetingsFont=slant
 
 # Bash's history
