@@ -1,7 +1,5 @@
 # -*- mode: sh; -*-
 
-# FIXME remove extra space at the end of printed lines (see belongs:15)
-
 EXIT_FAILURE=1
 
 # Find out to which Pacman package a command belongs to
@@ -14,10 +12,11 @@ belongs() {
 	cmdpath="$(command -v $1 | tr -d '\n')"
 
 	if [[ $(echo -n "$cmdpath" | wc -c) -gt 0 ]]; then
-	    pacman -Fq "$cmdpath" | tr '\n' ' '
+	    pkgs=$(pacman -Fq "$cmdpath")
+
+	    echo -n $pkgs
 	else
-	    echo -e >&2 "isn't on your PATH"
-	    return $EXIT_FAILURE
+	    echo -n >&2 "can't find the executable (check if it's in your PATH)"
 	fi
 
 	echo ""
