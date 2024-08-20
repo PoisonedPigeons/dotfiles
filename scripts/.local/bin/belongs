@@ -3,8 +3,6 @@
 
 # Find out to which Pacman package a command belongs to
 
-EXIT_FAILURE=1
-
 while [[ $# -gt 0 ]];
 do
     echo -n "$1: "

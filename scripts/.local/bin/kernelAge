@@ -1,10 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; fill-column: 90; -*-
 
-# Give exit codes used here clear names.
-EXIT_SUCCESS=0
-EXIT_FAILURE=1
-
 # If there is a three letter abbreviation of the month's name in the uname output, we
 # assume it contains the kernel's compilation date and time. Otherwise, exit with failure.
 uname -a | grep -E 'Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec' > /dev/null 2>&1

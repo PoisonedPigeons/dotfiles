@@ -29,7 +29,7 @@ greetings() {
     # Verify that figlet is installed on system, and if it is not: fail
     if ! [ -x "$(command -v figlet)" ]; then
 	>&2 echo "This scripts requires figlet to work."
-	exit 1
+	exit $EXIT_FAILURE
     else
 	figlet -f "$greetingsFont" "$hostname" | sed '/^\s*$/d'
 	echo

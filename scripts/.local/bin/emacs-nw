@@ -4,13 +4,13 @@
 # Check if Emacs is installed on system, and if it is not: tell the user
 if ! [ -x "$(command -v emacs)" ]; then
     echo "Emacs doesn't appear to be installed on your system."
-    exit 1
+    exit $EXIT_FAILURE
 else
     # Stop the user from running Emacs as the root user.
     if [ "$EUID" -eq 0 ]; then
 	echo "Running Emacs (or any text editor) as root to edit a file is unadvisable."
 	echo "Please use sudoedit! It should use Emacs if you've set \$EDITOR right."
-	exit 1
+	exit $EXIT_FAILURE
     fi
 
     emacs -nw "$@"

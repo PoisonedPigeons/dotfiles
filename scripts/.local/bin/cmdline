@@ -1,9 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; fill-column: 80; -*-
 
-# Give exit codes used here clear names.
-EXIT_FAILURE=1
-
 # If the first argument doesn't exclusively contain a number, remind the user
 # how to correctly use this command and exit with failure code.
 regex='^[0-9]+$'
