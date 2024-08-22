@@ -1,5 +1,5 @@
 #!/bin/bash
-# -*- mode: sh; tab-width: 4; -*-
+# -*- mode: sh; -*-
 
 # Store this AWK program into the variable AwkProgram (use bash builtin "read").
 read -r -d '' AwkProgram <<-EOM
@@ -10,5 +10,9 @@ EOM
 
 # Verify if the sensors command is installed on the system.
 if [ -x "$(command -v sensors)" ]; then
-	sensors | awk "$AwkProgram"
+    sensors | awk "$AwkProgram"
+else
+    >&2 echo "The sensors command doesn't seem to be installed on your system.
+Please check if the lm_sensors package is installed on your system."
+    exit $EXIT_FAILURE
 fi
