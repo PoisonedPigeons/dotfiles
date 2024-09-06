@@ -10,7 +10,8 @@ do
     cmdpath="$(command -v $1 | tr -d '\n')"
 
     if [[ $(echo -n "$cmdpath" | wc -c) -gt 0 ]]; then
-	pkgs=$(pacman -Fq "$cmdpath")
+	pkgs=$(pacman -Fq "$cmdpath" || echo "executable is in PATH but doesn't" \
+					     "belong to a Pacman package")
 
 	echo -n $pkgs
     else
