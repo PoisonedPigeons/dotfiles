@@ -39,6 +39,9 @@ export COLORTERM="truecolor"
 # Options passed to the less(1) pager by systemd (systemd doesn't obey $LESS)
 export SYSTEMD_LESS="FRSMK"
 
+# Tell interested programs how to connect to MPD
+export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket"
+
 #export greetingsFont=slant
 
 # Bash's history
