@@ -3,5 +3,6 @@
 database
 state
 
-# This systemd directory doesn't need to be tracked
+# These systemd directories don't need to be tracked
 default.target.wants
+sockets.target.wants
