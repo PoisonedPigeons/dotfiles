@@ -10,8 +10,3 @@ mpd_music_dir = ~/Music
 
 # Default music visualizer
 visualizer_type = wave_filled
-
-# According to my testing, the fetching of song lyrics no longer works as of
-# novembre 2023. Therefore, ncmpcpp creates a useless .lyrics directory in my
-# home. Here I make sure it doesn't happen.
-lyrics_directory = /tmp
