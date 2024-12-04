@@ -3,7 +3,6 @@
 
 # Store this AWK program into the variable AwkProgram (use bash builtin "read").
 read -r -d '' AwkProgram <<-EOM
-	/^\$/ { exit }
 	/fan[1,2]:/ { ORS=", "; print \$2 " RPM" }
 	/CPU:/ { ORS="\n"; print \$2 }
 EOM
