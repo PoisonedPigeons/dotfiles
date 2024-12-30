@@ -26,7 +26,7 @@ if [[ -d $HOME/.config/bash/functions ]]; then
 fi
 
 export PATH="$HOME/perl5/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/share/bcc/tools:$PATH"
-export MANPATH="/usr/share/bcc/man:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$HOME/.local/man"
+export MANPATH="/usr/share/bcc/man:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man:$MANPATH"
 export SBCL_HOME="/usr/lib/sbcl"
 export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
 
