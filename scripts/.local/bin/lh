@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+
+# A short script which makes looking up man pages quicker (in fewer keystrokes).
+
+usage() {
+    echo >&2 "$0: [SECTION] keyword [PATTERN]"
+}
+
+if [ $(echo "$1" | grep -E "[0-9]") ]; then
+    if [[ $# -eq 3 ]]; then
+	man -k -s $1 $2 | grep "$3"
+    else
+	man -k -s $1 $2
+    fi
+elif [[ $# -eq 2 ]]; then
+    man -k $1 | grep "$2"
+else
+    usage
+    exit $EXIT_FAILURE
+fi
