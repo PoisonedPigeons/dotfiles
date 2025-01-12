@@ -7,14 +7,16 @@ usage() {
     echo >&2 "$0: [SECTION] keyword [PATTERN]"
 }
 
-if [ $(echo "$1" | grep -E "[0-9]") ]; then
+if [[ $1 =~ ^[0-9][a-z]?+$ ]]; then
     if [[ $# -eq 3 ]]; then
-	man -k -s $1 $2 | grep "$3"
+	man -k -s $1 $2 | grep -i "$3"
     else
 	man -k -s $1 $2
     fi
 elif [[ $# -eq 2 ]]; then
-    man -k $1 | grep "$2"
+    man -k $1 | grep -i "$2"
+elif [[ $# -eq 1 ]]; then
+    man -k $1
 else
     usage
     exit $EXIT_FAILURE
