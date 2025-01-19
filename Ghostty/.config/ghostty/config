@@ -1,0 +1,7 @@
+# I've gotten used to the way GNOME Console (kgx) looks by default. Here I try
+# to make Ghostty look as much like the former as possible.
+
+theme = light:Adwaita,dark:Adwaita Dark
+
+font-size = 10
+font-family = Cantarell-VF
