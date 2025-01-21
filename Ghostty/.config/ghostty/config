@@ -1,7 +1,41 @@
 # I've gotten used to the way GNOME Console (kgx) looks by default. Here I try
 # to make Ghostty look as much like the former as possible.
 
+# Disable these shell integration features I don't appreciate
+shell-integration-features = no-cursor,no-title
+
+# Appearance
 theme = light:Adwaita,dark:Adwaita Dark
 
 font-size = 10
 font-family = Cantarell-VF
+
+cursor-style = block
+
+# Keybindings
+
+# Split
+
+# Creation
+keybind=ctrl+super+c=new_split:right
+keybind=ctrl+super+k=new_split:down
+
+# Navigation
+keybind = ctrl+super+n=goto_split:next
+keybind = ctrl+super+p=goto_split:previous
+
+keybind = ctrl+super+up=goto_split:top
+keybind = ctrl+super+down=goto_split:bottom
+keybind = ctrl+super+left=goto_split:left
+keybind = ctrl+super+right=goto_split:right
+
+# Resizing
+keybind=alt+shift+up=resize_split:up,10
+keybind=alt+shift+down=resize_split:down,10
+keybind=alt+shift+left=resize_split:left,10
+keybind=alt+shift+right=resize_split:right,10
+
+keybind=alt+shift+equal=equalize_splits
+
+# Miscellaneous
+keybind=ctrl+super+enter=toggle_split_zoom
