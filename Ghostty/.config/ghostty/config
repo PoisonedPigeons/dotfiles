@@ -35,7 +35,7 @@ keybind=alt+shift+down=resize_split:down,10
 keybind=alt+shift+left=resize_split:left,10
 keybind=alt+shift+right=resize_split:right,10
 
-keybind=alt+shift+equal=equalize_splits
+keybind=alt+shift+plus=equalize_splits
 
 # Miscellaneous
 keybind=ctrl+super+enter=toggle_split_zoom
