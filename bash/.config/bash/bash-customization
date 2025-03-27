@@ -53,9 +53,6 @@ HISTCONTROL=ignoredups:erasedups
 # Commands that start with a space will be ignored
 HISTCONTROL="ignorespace:${HISTCONTROL}"
 
-# Change the color of the prompt to red if a program exits in error
-PS1="\$(ec=\$?; if [[ \$ec -eq 0 ]]; then echo '[\u@\h \W]\$ '; else echo '\e[39;31m[\u@\h \W]$\e[0m '; fi)"
-
 # Stuff needed by Perl's module manager (CPAN)
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
