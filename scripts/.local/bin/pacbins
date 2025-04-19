@@ -1,19 +1,36 @@
-#!/usr/bin/bash
+#!/bin/bash
 # -*- mode: sh; -*-
 
-# pacbins: print the list of files installed under /usr/bin belonging to a
-# certain Pacman package.
+# pacbins: print the list of files installed under BINS (defaults to /usr/bin)
+# belonging to a certain Pacman package.
 
-if [[ $# -eq 1 ]]; then
-    outfile="$(mktemp /tmp/pacbin.XXXXXXXXXX)" &&
-	pacman -Qql "$1" > "$outfile" 2> /dev/null &&
-	grep -E "/usr/bin/[a-zA-Z0-9]{1}" "$outfile" ||
-	    (rm "$outfile";
-	     >&2 echo "error: package $1 either isn't installed, doesn't" \
-		 "exist or doesn't have any executable files";
-	     exit $EXIT_FAILURE) &&
-		rm "$outfile"
-else
-    >&2 echo "Usage: pacbins [PACKAGE]"
+BINS=${BINS:="/usr/bin"}
+
+usage () {
+    >&2 echo "Usage: $0 [PACKAGE]..."
     exit $EXIT_FAILURE
+}
+
+if [[ $# -eq 0 ]]; then
+    usage
 fi
+
+while [[ $# -gt 0 ]];
+do
+    echo "$1:"
+
+    pacman -Qq $1 > /dev/null 2>&1
+
+    if [[ $? -gt 0 ]]; then
+	echo "isn't a package managed by Pacman"
+	shift && continue
+    fi
+
+    pacman -Qql $1 2> /dev/null | grep -E "$BINS/[a-zA-Z0-9]{1}"
+
+    if [[ $? -gt 0 ]]; then
+	echo "no files in $BINS"
+    fi
+
+    shift
+done
