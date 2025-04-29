@@ -22,8 +22,7 @@ if [[ -d $HOME/.config/bash/functions ]]; then
     done
 fi
 
-export PATH="$HOME/perl5/bin:$HOME/.local/bin:/usr/share/bcc/tools:$PATH"
-export MANPATH="/usr/share/bcc/man:$MANPATH"
+export PATH="$PATH:/usr/share/bcc/tools:$HOME/.local/bin"
 export SBCL_HOME="/usr/lib/sbcl"
 export QEMU_LD_PREFIX="/usr/riscv64-linux-gnu"
 
@@ -52,12 +51,6 @@ HISTCONTROL=ignoredups:erasedups
 
 # Commands that start with a space will be ignored
 HISTCONTROL="ignorespace:${HISTCONTROL}"
-
-# Stuff needed by Perl's module manager (CPAN)
-PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # Exit codes are given nice names (to be used in scripts and functions)
 export EXIT_SUCCESS=0
