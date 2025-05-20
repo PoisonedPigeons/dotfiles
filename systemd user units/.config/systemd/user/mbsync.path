@@ -1,0 +1,9 @@
+# -*- mode: conf-unix; -*-
+[Unit]
+Description=Trigger syncing after changes are made to .notmuch
+
+[Path]
+PathChanged=%h/Mail/.notmuch
+
+[Install]
+WantedBy=default.target

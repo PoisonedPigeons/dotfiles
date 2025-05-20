@@ -1,0 +1,11 @@
+# -*- mode: conf-unix; -*-
+[Unit]
+Description=Email synchronization timer (isync)
+
+[Timer]
+OnBootSec=3m
+OnUnitActiveSec=30m
+Unit=mbsync.service
+
+[Install]
+WantedBy=timers.target
