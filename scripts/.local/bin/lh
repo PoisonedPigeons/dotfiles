@@ -24,9 +24,9 @@ lh() {
     fi
 }
 
-if [[ $0 == "lh" ]]; then
+if [[ ${0##*/} == "lh" ]]; then
     lh "$@"
-elif [[ $0 == "lhi" ]]; then
+elif [[ ${0##*/} == "lhi" ]]; then
     lh "$@" | fzf --tac | cut -d' ' -f1 | xargs -r man
 else
     echo "To get the original non-interactive version call lh.\
