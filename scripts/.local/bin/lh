@@ -7,17 +7,28 @@ usage() {
     echo >&2 "$0: [SECTION] keyword [PATTERN]"
 }
 
-if [[ $1 =~ ^[0-9][a-z]?+$ ]]; then
-    if [[ $# -eq 3 ]]; then
-	man -k -s $1 $2 | grep -i "$3"
+lh() {
+    if [[ $1 =~ ^[0-9][a-z]?+$ ]]; then
+	if [[ $# -eq 3 ]]; then
+	    man -k -s $1 $2 | grep -i "$3"
+	else
+	    man -k -s $1 $2
+	fi
+    elif [[ $# -eq 2 ]]; then
+	man -k $1 | grep -i "$2"
+    elif [[ $# -eq 1 ]]; then
+	man -k $1
     else
-	man -k -s $1 $2
+	usage
+	exit $EXIT_FAILURE
     fi
-elif [[ $# -eq 2 ]]; then
-    man -k $1 | grep -i "$2"
-elif [[ $# -eq 1 ]]; then
-    man -k $1
+}
+
+if [[ $0 == "lh" ]]; then
+    lh "$@"
+elif [[ $0 == "lhi" ]]; then
+    lh "$@" | fzf --tac | cut -d' ' -f1 | xargs -r man
 else
-    usage
-    exit $EXIT_FAILURE
+    echo "To get the original non-interactive version call lh.\
+ To get the interactive one call lhi."
 fi
