@@ -1,0 +1,22 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+
+# wc{l,c}: short script which makes getting the line or byte count of a
+# command's result take fewer keystrokes. ex.: "wcl pacman -Qq" => 2014
+
+if [[ ${0##*/} == "wcl" && $# -gt 0 ]]; then
+    wcop="-l"
+elif [[ ${0##*/} == "wcc" && $# -gt 0 ]]; then
+    wcop="-c"
+else
+    >&2 echo "Usage: $0 [CMD]"
+    exit $EXIT_FAILURE
+fi
+
+while [[ $# -gt 0 ]];
+do
+    cmd+="$1 "
+    shift
+done
+
+eval "$cmd | wc $wcop"
