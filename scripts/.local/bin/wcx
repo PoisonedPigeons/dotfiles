@@ -4,19 +4,39 @@
 # wc{l,c}: short script which makes getting the line or byte count of a
 # command's result take fewer keystrokes. ex.: "wcl pacman -Qq" => 2014
 
-if [[ ${0##*/} == "wcl" && $# -gt 0 ]]; then
-    wcop="-l"
-elif [[ ${0##*/} == "wcc" && $# -gt 0 ]]; then
-    wcop="-c"
-else
-    >&2 echo "Usage: $0 [CMD]"
+__Usage() {
+    >&2 echo "Usage: ${0##*/} [CMD] || [FILE]..."
     exit $EXIT_FAILURE
-fi
+}
+
+if [[ $# == 0 ]]; then __Usage; fi
+
+case ${0##*/} in
+    "wcc")
+	wcop="-c";;
+    "wcm")
+	wcop="-m";;
+    "wcl")
+	wcop="-l";;
+    "wcw")
+	wcop="-w";;
+    *)
+	__Usage;;
+esac
 
 while [[ $# -gt 0 ]];
 do
-    cmd+="$1 "
+    # If it's a path to a file, give the size of that instead (and all after).
+    if [[ -f $1 || $files ]]; then
+	files+="$1 "
+    else
+	cmd+="$1 "
+    fi
     shift
 done
 
-eval "$cmd | wc $wcop"
+if [[ ! $files ]]; then
+    eval "$cmd | wc $wcop"
+else
+    eval "wc $wcop $files"
+fi
